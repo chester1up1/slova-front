@@ -1,3 +1,38 @@
 {
-  "extends": "next/core-web-vitals"
+  "parser": "@typescript-eslint/parser",
+  "extends": "next/core-web-vitals",
+
+  "env": { "es6": true },
+
+  "plugins": [
+    "simple-import-sort",
+    "import",
+    "@typescript-eslint/eslint-plugin",
+    "unused-imports"
+  ],
+
+  "parserOptions": {
+    "sourceType": "module"
+  },
+
+  "rules": {
+    //IMPORTS
+    "simple-import-sort/imports": "error",
+    "simple-import-sort/exports": "error",
+    "import/first": "error",
+    "import/newline-after-import": "error",
+    "import/no-duplicates": "error",
+    //UNUSED
+    "no-unused-vars": "off", // or "@typescript-eslint/no-unused-vars": "off",
+    "unused-imports/no-unused-imports": "error",
+    "unused-imports/no-unused-vars": [
+      "warn",
+      {
+        "vars": "all",
+        "varsIgnorePattern": "^_",
+        "args": "after-used",
+        "argsIgnorePattern": "^_"
+      }
+    ]
+  }
 }
